@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <meta name="theme-color" content="#1B2638" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Nook" />
+    <title>Nook</title>
+    <script>
+      try {
+        var d = document.documentElement, g = function (k) { try { return localStorage.getItem(k) } catch (e) { return null } };
+        var t = g('uniflow.theme'), dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+        d.dataset.theme = dark ? 'dark' : 'light';
+        var b = g('uniflow.bg'); d.dataset.bg = /^(plain|alpine|autumn|forest|cosmos|sakura|ocean|desert|lavender|arctic|ink|terraces|waterfall)$/.test(b || '') ? b : 'alpine';
+        d.lang = g('uniflow.lang') === 'vi' ? 'vi' : 'en';
+        var r = g('uniflow.reduce'); d.dataset.reduceEffects = String(r === null ? matchMedia('(prefers-reduced-transparency: reduce)').matches : r === 'true');
+      } catch (e) {}
+    </script>
+  </head>
+  <body><div id="root"></div><script type="module" src="/src/main.tsx"></script></body>
+</html>
